@@ -17,16 +17,17 @@ function setup() {
 
 function draw() {
   // context.clearRect(0, 0, width, height)
-  context.fillStyle = "rgba(255,255,255,0.08)"
+  context.fillStyle = "rgba(255,255,255,0.04)"
   context.fillRect(0, 0, width, height)
-  let nSpiral = 30
-  posx = centerX + Math.cos((count * nSpiral) * Math.PI / 180) * (width / 2)
-  posy = sawTooth(count * 0.02) * height
-  let spiralHeight = Math.sin(map(Math.abs(posy - centerY), 0, height, 0, Math.PI)) * height / 18
-  let spiralWidth = easeInOutSine(Math.sin(count)) * width / 18
-  ellipse(posx, posy, spiralWidth, spiralHeight)
+  const posx = sawTooth(count) * width
+  const posy = sawTooth(count) * height
+  const spiralWidth = Math.sqrt(Math.pow(width / 2, 2) - Math.pow(Math.abs(posy - centerY), 2))
+  const spiralHeight = Math.abs(Math.sin(map(posy, 0, height, 0, Math.PI))) * 100
+
+  ellipse(centerX, posy, spiralWidth, spiralHeight)
+  ellipse(posx, centerY, spiralHeight, spiralWidth)
   color += 1
-  count += 0.1
+  count += 0.021
   requestAnimationFrame(draw)
 }
 
