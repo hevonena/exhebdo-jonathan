@@ -21,9 +21,9 @@ function draw() {
   context.fillRect(0, 0, width, height)
   let nSpiral = 30
   posx = centerX + Math.cos((count * nSpiral) * Math.PI / 180) * (width / 2)
-  posy = sawTooth(count*0.02) * height
-  let spiralHeight = Math.sin(map(Math.abs(posy-centerY), 0, height, 0, Math.PI))*height/18
-  let spiralWidth = easeInOutSine()*width/18
+  posy = sawTooth(count * 0.02) * height
+  let spiralHeight = Math.sin(map(Math.abs(posy - centerY), 0, height, 0, Math.PI)) * height / 18
+  let spiralWidth = easeInOutSine(Math.sin(count)) * width / 18
   ellipse(posx, posy, spiralWidth, spiralHeight)
   color += 1
   count += 0.1
