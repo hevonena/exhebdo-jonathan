@@ -51,3 +51,14 @@ function sawTooth(x) {
     return Math.floor(x) % 2 == 0 ? x - Math.floor(x) : Math.ceil(x) - x
 }
 
+function checkAndChangeDirection() {
+    const currentInteger = Math.floor(count)
+
+    if (currentInteger !== lastInteger) {
+        console.log("change direction" + a)
+        a = Math.random() * 360
+        
+        // Update the 'lastInteger' for the next check
+        lastInteger = currentInteger;
+    }
+}
