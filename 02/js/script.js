@@ -25,12 +25,12 @@ function draw() {
   const spiralHeight = Math.abs(Math.sin(map(posy, 0, height, 0, Math.PI))) * 100
   context.save()
   context.translate(centerX, centerY)
-  context.rotate(count*1.3)
+  context.rotate(count * 1.3)
   context.translate(-centerX, -centerY)
   ellipse(centerX, posy, spiralWidth, spiralHeight)
   context.restore()
 
-  
+
   context.save()
   context.translate(centerX, centerY)
   context.rotate(count)
