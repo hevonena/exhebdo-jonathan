@@ -4,15 +4,13 @@ const height = 800
 let context
 let color = 0
 let count = 0
-let a
-let lastInteger = Math.floor(count)
 
 function setup() {
   console.log("setup")
   createCanvas(width, height)
   centerX = width / 2
   centerY = height / 2
-  a = Math.random() * 360
+
   // document.addEventListener("click", mousePressed)
   draw()
 }
@@ -21,16 +19,26 @@ function draw() {
   // context.clearRect(0, 0, width, height)
   context.fillStyle = "rgba(255,255,255,0.04)"
   context.fillRect(0, 0, width, height)
-  const posx =  Math.cos(a) * width/2 + Math.cos(sawTooth(count)) * width
-  const posy = centerY
-  // const spiralWidth = Math.sqrt(Math.pow(width / 2, 2) - Math.pow(Math.abs(posy - centerY), 2))
-  // const spiralHeight = Math.abs(Math.sin(map(posy, 0, height, 0, Math.PI))) * 100
-  const spiralWidth = 10
-  const spiralHeight = 10
-  ellipse(posx, posy, spiralHeight, spiralWidth)
+  const posx = sawTooth(count) * width
+  const posy = sawTooth(count) * height
+  const spiralWidth = Math.sqrt(Math.pow(width / 2, 2) - Math.pow(Math.abs(posy - centerY), 2))
+  const spiralHeight = Math.abs(Math.sin(map(posy, 0, height, 0, Math.PI))) * 100
+  context.save()
+  context.translate(centerX, centerY)
+  context.rotate(count*1.3)
+  context.translate(-centerX, -centerY)
+  ellipse(centerX, posy, spiralWidth, spiralHeight)
+  context.restore()
+
+  
+  context.save()
+  context.translate(centerX, centerY)
+  context.rotate(count)
+  context.translate(-centerX, -centerY)
+  ellipse(posx, centerY, spiralHeight, spiralWidth)
+  context.restore()
   color += 1
-  count += 0.0061
-  checkAndChangeDirection()
+  count += 0.021
   requestAnimationFrame(draw)
 }
 
