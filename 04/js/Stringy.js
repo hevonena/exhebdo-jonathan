@@ -75,7 +75,6 @@ class Stringy {
     update() {
         if (this.t > 1) {
             this.beginPoints = this.endPoints
-            //return
         }
         if (this.t > 3) {
             this.curly = 0.3
