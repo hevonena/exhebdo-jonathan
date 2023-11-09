@@ -8,8 +8,8 @@ class Stringy {
         this.numPoints = numPoints
         this.curly = curly
         this.controlPoints = this.generateControlPoints()
-        this.beginPoints = this.controlPoints.map(cp => ({ ...cp }));
-        this.endPoints = this.controlPoints.map(cp => ({ ...cp }));
+        this.beginPoints = this.controlPoints.map(cp => ({ ...cp }))
+        this.endPoints = this.controlPoints.map(cp => ({ ...cp }))
         this.t = 0
     }
 
