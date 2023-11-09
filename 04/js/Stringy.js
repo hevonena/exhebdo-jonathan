@@ -76,7 +76,7 @@ class Stringy {
         if (this.t > 1) {
             this.beginPoints = this.endPoints
         }
-        if (this.t > 3) {
+        if (this.t > 2) {
             this.curly = 0.3
             this.endPoints = this.generateControlPoints()
             this.t = 0
@@ -98,8 +98,8 @@ class Stringy {
 
     changeCurliness(mouse) {
         if (this.t < 1) return
-        if (dist(mouse.x, mouse.y, this.start.x, this.start.y) > window.innerWidth / 5) return
-        const factor = map(dist(mouse.x, mouse.y, this.start.x, this.start.y), 0, window.innerWidth / 2, 4, 0.1)
+        if (dist(mouse.x, mouse.y, this.start.x, this.start.y) > window.innerWidth / 8) return
+        const factor = map(dist(mouse.x, mouse.y, this.start.x, this.start.y), 0, window.innerWidth / 2, 2, 0.01)
         this.curly = factor
         this.endPoints = this.generateControlPoints()
         this.t = 0

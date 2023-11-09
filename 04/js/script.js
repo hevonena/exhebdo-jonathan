@@ -3,8 +3,9 @@ let flower
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight)
 
-    curveEditor = new CurveEditor(context)
-    flower = new Flower({ x: window.innerWidth / 2, y: window.innerHeight / 2 }, 200, 800, 8, context)
+    let petals = 5
+    //curveEditor = new CurveEditor(context)
+    flower = new Flower({ x: window.innerWidth / 2, y: window.innerHeight / 2 }, 100, 600, petals, context)
 
     addEventListener('mousemove', mouseMove)
     addEventListener('mousedown', mouseDown)
@@ -17,25 +18,26 @@ function draw() {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     context.fillStyle = '#000'
 
-    flower.draw()
-    curveEditor.draw()
+    flower.drawStringies()
+    //curveEditor.draw()
     requestAnimationFrame(draw)
 }
 
 function mouseDown(e) {
-    curveEditor.mouseDown(e)
+    //curveEditor.mouseDown(e)
 }
 
 function mouseUp(e) {
-    curveEditor.mouseUp(e)
+    //curveEditor.mouseUp(e)
 }
 
 function mouseMove(e) {
-    curveEditor.mouseMove(e)
+    //curveEditor.mouseMove(e)
+    flower.mouseMove(e)
 }
 
 function keyDown(e) {
-    curveEditor.keyDown(e)
+    //curveEditor.keyDown(e)
 }
 
 
