@@ -17,6 +17,7 @@ function setup() {
 function draw() {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     context.fillStyle = '#000'
+    
 
     flower.drawStringies()
     //curveEditor.draw()
@@ -25,6 +26,8 @@ function draw() {
 
 function mouseDown(e) {
     //curveEditor.mouseDown(e)
+
+
 }
 
 function mouseUp(e) {
