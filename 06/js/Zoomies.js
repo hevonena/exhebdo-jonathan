@@ -1,4 +1,4 @@
-class Isolation {
+class Zoomies {
     constructor(x, y, w, ctx) {
         this.x = x
         this.y = y
@@ -24,4 +24,5 @@ class Isolation {
         }
         this.life -= this.speed
     }
+
 }

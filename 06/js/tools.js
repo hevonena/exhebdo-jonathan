@@ -29,6 +29,14 @@ function triangle(x, y,s, ctx) {
     ctx.closePath()
 }
 
+function line(x1, y1, x2, y2, ctx) {
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.stroke()
+    ctx.closePath()
+}
+
 function map(value, start1, stop1, start2, stop2) {
     return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1))
 }
