@@ -4,6 +4,7 @@ export default class Camera {
         this.video = document.createElement('video')
         this.video.width = window.innerWidth
         this.video.height = window.innerHeight
+        //this.video.style.transform = "scaleX(-1)"
         document.body.appendChild(this.video)
 
         this.initWebcam()

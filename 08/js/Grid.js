@@ -6,7 +6,7 @@ export default class Grid {
         this.draw(this.finger)
     }
     draw(finger) {
-        const n = 7
+        const n = 20
         const gridWidth = window.innerWidth / n
         const gridHeight = window.innerHeight / n
 

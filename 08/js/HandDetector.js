@@ -8,6 +8,13 @@ export default class HandDetector extends EventEmitter {
         super()
         console.log('HandDetector')
         this.videoElement = videoElement
+        this.videoElement.width = window.innerWidth
+        this.videoElement.height = window.innerHeight
+        //this.videoElement.style.objectFit = 'cover'
+        this.videoElement.oncanplay = () => this.init()
+    }
+
+    init() {
         this.canvas = document.createElement('canvas')
         this.canvas.width = window.innerWidth
         this.canvas.height = window.innerHeight
@@ -39,7 +46,7 @@ export default class HandDetector extends EventEmitter {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         if (results.landmarks.length > 0) {
             results.landmarks.forEach((landmarks) => {
-                drawLandmarks(this.ctx, landmarks, { color: 'red', radius: 5 })
+                //drawLandmarks(this.ctx, landmarks, { color: 'red', radius: 5 })
             })
 
             this.finger = results.landmarks[0][8]

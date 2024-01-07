@@ -1,6 +1,9 @@
 import Camera from './Camera.js'
 import Grid from './Grid.js'
 import HandDetector from './HandDetector.js'
+import Stringies from './Stringies.js'
+
+//have hairs all over and they ripple when you move your hand
 
 export default class App {
     constructor() {
@@ -13,13 +16,16 @@ export default class App {
     onHandDetectorReady(e) {
         console.log('onHandDetectorReady')
         this.grid = new Grid(this.handDetector.ctx, this.handDetector.finger)
+        this.stringies = new Stringies(this.handDetector.ctx, 7000)
         this.draw()
     }
 
     draw() {
-
         this.handDetector.detect()
-        this.grid.draw(this.handDetector.finger)
+        //this.grid.draw(this.handDetector.finger)
+        this.stringies.touch(this.handDetector.finger)
+        this.stringies.update()
+        this.stringies.draw()
         requestAnimationFrame(this.draw.bind(this))
     }
 }
