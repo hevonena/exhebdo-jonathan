@@ -104,6 +104,10 @@ export default class Stringy {
     }
 
     changeCurliness(finger) {
+        if(finger.x === null || finger.y === null) {
+            finger.x = - 200
+            finger.y = - 200
+        }
         let mouse = { x: finger.x * window.innerWidth, y: finger.y * window.innerHeight }
         if (this.t < 1) {
             return

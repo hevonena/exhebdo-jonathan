@@ -20,7 +20,8 @@ export default class HandDetector extends EventEmitter {
         this.canvas.height = window.innerHeight
         document.body.appendChild(this.canvas)
         this.ctx = this.canvas.getContext('2d')
-        this.finger = { x: null, y: null }
+        this.finger1 = { x: null, y: null }
+        this.finger2 = { x: null, y: null }
         this.createHandLandmarker()
     }
 
@@ -49,9 +50,16 @@ export default class HandDetector extends EventEmitter {
                 //drawLandmarks(this.ctx, landmarks, { color: 'red', radius: 5 })
             })
 
-            this.finger = results.landmarks[0][8]
+            this.finger1 = results.landmarks[0][8]
+
+            if(results.landmarks.length == 2){
+                this.finger2 = results.landmarks[1][8]
+            } else {
+                this.finger2 = { x: null, y: null }
+            }
+
         } else {
-            this.finger = { x: null, y: null }
+            this.finger1 = { x: null, y: null }
         }
     }
 }
